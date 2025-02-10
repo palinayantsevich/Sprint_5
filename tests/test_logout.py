@@ -15,13 +15,13 @@ class TestLogout:
 
         Helper.perform_login(driver)
 
-        button_my_account = driver.find_element(*Locators.locator_main_my_account)
+        button_my_account = driver.find_element(*Locators.LOCATOR_MAIN_MY_ACCOUNT)
         button_my_account.click()
 
         WebDriverWait(driver, TestData.WAIT_TIME).until(
-            EC.visibility_of_element_located(Locators.locator_my_acc_logout_button))
+            EC.visibility_of_element_located(Locators.LOCATOR_MY_ACC_LOGOUT_BUTTON))
 
-        button_logout = driver.find_element(*Locators.locator_my_acc_logout_button)
+        button_logout = driver.find_element(*Locators.LOCATOR_MY_ACC_LOGOUT_BUTTON)
         button_logout.click()
 
         WebDriverWait(driver, TestData.WAIT_TIME).until(EC.url_to_be(TestData.LOGIN_PAGE_LINK))

@@ -24,20 +24,20 @@ class Helper:
 
     @staticmethod
     def perform_login(driver):
-        email_input = driver.find_element(*Locators.locator_login_email)
+        email_input = driver.find_element(*Locators.LOCATOR_LOGIN_EMAIL)
         email_input.send_keys(TestData.AUTH_EMAIL)
 
-        password_input = driver.find_element(*Locators.locator_login_password)
+        password_input = driver.find_element(*Locators.LOCATOR_LOGIN_PASSWORD)
         password_input.send_keys(TestData.AUTH_PASSWORD)
 
-        button_login = driver.find_element(*Locators.locator_login_button)
+        button_login = driver.find_element(*Locators.LOCATOR_LOGIN_BUTTON)
         button_login.click()
 
     @staticmethod
     def check_loggedin_state(driver):
         WebDriverWait(driver, TestData.WAIT_TIME).until(
-            EC.visibility_of_element_located(Locators.locator_main_make_order))
+            EC.visibility_of_element_located(Locators.LOCATOR_MAIN_MAKE_ORDER))
 
-        button_make_order = driver.find_element(*Locators.locator_main_make_order)
+        button_make_order = driver.find_element(*Locators.LOCATOR_MAIN_MAKE_ORDER)
 
         return button_make_order.is_displayed()
